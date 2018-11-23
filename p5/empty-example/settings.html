@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Configuració
+  </title>
+</head>
+<body>
+Nom: <label id="nom"></label><br />
+Dificultat: <label id="dificultat"></label><br />
+<a href="index.html">Tornar</a>
+<button id="boto" onclick="borrar()">
+  Esborrar
+  </button>
+<script>
+  var nom=localStorage.getItem("user");
+var dificultat=localStorage.getItem("Dificultat");
+if(nom==null || dificultat==null){
+  nom=prompt("Entra el teu nom");
+  dificultat=prompt("Elegeix la dificultat");
+  localStorage.setItem("user",nom);
+  localStorage.setItem("Dificultat",dificultat);
+}
+
+document.getElementById("nom").innerHTML=nom;
+document.getElementById("dificultat").innerHTML=dificultat;
+
+function borrar(){
+  localStorage.removeItem("user");
+  localStorage.removeItem("Dificultat");
+
+    nom=prompt("Entra el teu nom");
+    dificultat=prompt("Elegeix la dificultat");
+    localStorage.setItem("user",nom);
+    localStorage.setItem("Dificultat",dificultat);
+    document.getElementById("nom").innerHTML=nom;
+    document.getElementById("dificultat").innerHTML=dificultat;
+}
+
+</script>
+
+</body>
+</html>

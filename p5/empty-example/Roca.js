@@ -1,9 +1,9 @@
-class Roca extends extends GameObject {
+class Roca extends  GameObject{
   constructor(x,y){
     super(x,y);
   }
 
   show(){
-    img();
+    image(roca,this.cordX,this.cordY);
   }
 }

@@ -1,19 +1,57 @@
 <!DOCTYPE html>
 <html>
 <style>
-#title {
-  background:url('imatges/title.png');
+
+img {
+
+    margin-left: 650px;
+    margin-top: 100px;
+
 }
 
+#start {
+  margin-left: 750px;
+  margin-top: 20px;
+  background-color: Yellow;
+  width: 25%;
+
+
+}
+
+#ajuda {
+  margin-left:750px;
+  background-color: Yellow;
+  width: 25%;
+
+}
+#settings {
+  margin-left:750px;
+  background-color: Yellow;
+  width: 25%;
+
+}
 </style>
 
   <body>
-    <h1>PACMAN</h1>
-    <div id="title"></div>
+
+    <img src="imatges/title.png"  />
+
+
+
+
 
 
     <br />
 
-      <a href="index2.html"> Joc</a>
-  </body>
+    <form action="index2.html">
+        <input id="start" type="submit" value="Comenzar a jugar" />
+      </form>
+      <form action="ajuda.html">
+        <input id="ajuda" type="submit" value="Ajuda" />
+      </form>
+      <form action="settings.html">
+        <input id="settings" type="submit" value="Settings" />
+
+      </form>
+    </body>
 </html>

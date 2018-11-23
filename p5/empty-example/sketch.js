@@ -109,7 +109,7 @@ mypacman.show();
 if(mypacman.lives==0){
   alert("Game Over");
   noLoop();
-  document.write("<h1>Hello World!</h1><p>Have a nice day!</p>");
+  window.history.back();
 
 }
 printfooter();

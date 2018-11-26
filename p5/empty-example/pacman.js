@@ -1,5 +1,6 @@
 const FOOD_POINTS=20;
 const RAIM_POINTS=40;
+var d1=localStorage.getItem("Dificultat");
 class pacman extends GameObject{
   constructor(x,y){
     super(x,y);
@@ -43,23 +44,86 @@ class pacman extends GameObject{
   }
 
   dreta(){
+
+
+    if(this.cordX==288){
+
+    }else{
     this.direction=0;
+    if(d1==1){
+    this.cordX+=IMAGE_SIZE;
+  }else{
+    this.cordX+=64;
+  }
+}
+
+  /*  if(this.speed==1){
       this.cordX+=IMAGE_SIZE;
+    }else if(this.speed==2){
+      this.cordX+=64;
+    }else if(this.speed==3){
+      this.cordX+=128;
+    }*/
   }
 
   esquerra(){
+    if(this.cordX==0){
+
+    }else{
     this.direction=2;
+    if(d1==1){
     this.cordX-=IMAGE_SIZE;
+  }else{
+    this.cordX-=64;
+  }
+}
+    /*if(this.speed==1){
+      this.cordX-=IMAGE_SIZE;
+    }else if(this.speed==2){
+      this.cordX-=64;
+    }else if(this.speed==3){
+      this.cordX-=128;
+    }*/
   }
 
   amunt(){
+    if(this.cordY==0){
+
+    }else{
     this.direction=3;
-    this.cordY-=IMAGE_SIZE;
+    if(d1==1){
+      this.cordY-=IMAGE_SIZE;
+    }else{
+      this.cordY-=64;
+    }
+  }
+    /*if(this.speed==1){
+      this.cordY-=IMAGE_SIZE;
+    }else if(this.speed==2){
+      this.cordY-=64;
+    }else if(this.speed==3){
+      this.cordY-=128;
+    }*/
   }
 
   avall(){
-    this.direction=1;
+    if(this.cordY==288){
+
+    }else{
+      this.direction=1;
+    if(d1==1){
     this.cordY+=IMAGE_SIZE;
+  }else{
+    this.cordY+=64;
+  }
+}
+    /*if(this.speed==1){
+      this.cordY+=IMAGE_SIZE;
+    }else if(this.speed==2){
+      this.cordY+=64;
+    }else if(this.speed==3){
+      this.cordY+=128;
+    }*/
     }
 
   eatFood (menjar) {

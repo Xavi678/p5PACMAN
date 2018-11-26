@@ -13,6 +13,8 @@ var arrayfoodmapa=[];
 var MYpacman;
 var food;
 var username=localStorage.getItem("user");
+var d1=localStorage.getItem("Dificultat");
+var temps=1150;
 
 
 function preload(){
@@ -60,13 +62,20 @@ function setup() {
     }
 
 
+
+
 }
 
 function draw() {
   // put drawing code here
   image(img, 0, 0);
 background(0);
-
+temps--;
+if(temps<=0){
+  alert("Has perdut");
+  noLoop();
+    window.history.back();
+}
 var i;
 var j;
 var indexRaim;
@@ -88,6 +97,7 @@ for(i=0;i<arrayfoodmapa.length;i++){
 for(i=0;i<arrayfoodmapa.length;i++){
    if(mypacman.eatFood(arrayfoodmapa[i])){
      arrayfoodmapa.splice(i,1);
+     temps=temps+25;
    }
 }
 
@@ -100,9 +110,11 @@ for(i=0;i<arrayRaim.length;i++){
 for(i=0;i<arrayrocamapa.length;i++){
    if(mypacman.eatRoca(arrayrocamapa[i])){
      arrayrocamapa.splice(i,1);
+     temps=temps-50;
    }
 }
 //image(img2, x, y);
+
 
 mypacman.show();
 //inputKeyboard();
@@ -113,7 +125,18 @@ if(mypacman.lives==0){
 
 }
 printfooter();
-
+/*if(d1==1){
+  mypacman.speed=1;
+}else if(d1==2){
+  mypamcan.speed=2;
+}else if(d1>=3){
+  mypacman.speed=3;
+}*/
+if(arrayfoodmapa.length==0 && arrayRaim.length==0){
+  alert("Has Guanyat");
+  noLoop();
+  window.history.back();
+}
 }
 function keyPressed() {
   if (keyCode === LEFT_ARROW) {
@@ -148,6 +171,20 @@ fill(255);
 textSize(12);
 textStyle(NORMAL);
 text(punts, 10, 390);
+
+var f="Dificultat: " + d1;
+
+fill(255);
+textSize(12);
+textStyle(NORMAL);
+text(f, 10, 410);
+
+var t="Temps: " + temps;
+
+fill(255);
+textSize(12);
+textStyle(NORMAL);
+text(t, 10, 430);
 }
 /**function inputKeyboard(){
   if(keyPressed(){

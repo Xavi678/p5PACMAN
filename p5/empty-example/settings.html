@@ -17,7 +17,7 @@ Dificultat: <label id="dificultat"></label><br />
 var dificultat=localStorage.getItem("Dificultat");
 if(nom==null || dificultat==null){
   nom=prompt("Entra el teu nom");
-  dificultat=prompt("Elegeix la dificultat");
+  dificultat=prompt("Elegeix la dificultat: (1=fàcil,2=díficil,3=molt díficil)");
   localStorage.setItem("user",nom);
   localStorage.setItem("Dificultat",dificultat);
 }
@@ -30,7 +30,7 @@ function borrar(){
   localStorage.removeItem("Dificultat");
 
     nom=prompt("Entra el teu nom");
-    dificultat=prompt("Elegeix la dificultat");
+    dificultat=prompt("Elegeix la dificultat: (1=fàcil,2=díficil,3=molt díficil)");
     localStorage.setItem("user",nom);
     localStorage.setItem("Dificultat",dificultat);
     document.getElementById("nom").innerHTML=nom;

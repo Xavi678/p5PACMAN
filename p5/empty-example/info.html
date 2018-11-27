@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+   <meta http−equiv="content−type" content="text/html; charset=utf−8">
+   <title>Objecte navigator</title>
+   </head>
+  <body>
+    <h1>Informació General</h1>
+    <label id="l1"> </label><br/>
+    <label id="l2"></label><br/>
+    <label id="l3"></label><br/>
+  <label id="l4"></label><br/>
+<label id="l5"></label><br/>
+<label id="l6"></label><br />
+<button onclick="window.history.back()">Enrere</button>
+&emsp;
+<button onclick="window.history.forward()">Endavant</button>
+
+
+
+  <script>
+ document.getElementById("l1").innerHTML="Navegador Utiltzat: " + navigator.appCodeName;
+  document.getElementById("l2").innerHTML="Versió del Navegador: " + navigator.appVersion;
+  document.getElementById("l3").innerHTML="SO on es va compilar: " + navigator.platform;
+    document.getElementById("l4").innerHTML="Última modificació: "+document.lastModified;
+    document.getElementById("l5").innerHTML="LLenguate: " + navigator.language;
+    document.getElementById("l6").innerHTML="Hostname: " + location.hostname;
+
+</script>
+</body>
+
+</html>

@@ -50,11 +50,9 @@ class pacman extends GameObject{
 
     }else{
     this.direction=0;
-    if(d1==1){
+
     this.cordX+=IMAGE_SIZE;
-  }else{
-    this.cordX+=64;
-  }
+
 }
 
   /*  if(this.speed==1){
@@ -71,11 +69,9 @@ class pacman extends GameObject{
 
     }else{
     this.direction=2;
-    if(d1==1){
+
     this.cordX-=IMAGE_SIZE;
-  }else{
-    this.cordX-=64;
-  }
+
 }
     /*if(this.speed==1){
       this.cordX-=IMAGE_SIZE;
@@ -91,11 +87,9 @@ class pacman extends GameObject{
 
     }else{
     this.direction=3;
-    if(d1==1){
+
       this.cordY-=IMAGE_SIZE;
-    }else{
-      this.cordY-=64;
-    }
+
   }
     /*if(this.speed==1){
       this.cordY-=IMAGE_SIZE;
@@ -111,11 +105,9 @@ class pacman extends GameObject{
 
     }else{
       this.direction=1;
-    if(d1==1){
+  
     this.cordY+=IMAGE_SIZE;
-  }else{
-    this.cordY+=64;
-  }
+
 }
     /*if(this.speed==1){
       this.cordY+=IMAGE_SIZE;

@@ -14,8 +14,12 @@ var MYpacman;
 var food;
 var username=localStorage.getItem("user");
 var d1=localStorage.getItem("Dificultat");
-var temps=1150;
-
+var maxpoints=[];
+var temps;
+if(d1=="" || d1==null || username=="" || username==null){
+  window.location.replace("index.html");
+  alert("Primer de tot has de posar els Settings");
+}
 
 function preload(){
   img=loadImage('imatges/imatge.jpg');
@@ -23,10 +27,12 @@ function preload(){
   roca=loadImage('imatges/roca.bmp');
   raim=loadImage('imatges/grape.png');
   food=loadImage('imatges/food.png');
+
 }
 
 function setup() {
   // put setup code here
+
 
 
    mymaze= new maze();
@@ -60,13 +66,21 @@ function setup() {
 
       }
     }
+  if(d1==1){
 
+  temps=1300;
 
+}else if(d1==2){
+  temps=1150;
+}else if(d1>=3){
+  temps=1000;
+}
 
 
 }
 
 function draw() {
+
   // put drawing code here
   image(img, 0, 0);
 background(0);
@@ -138,16 +152,21 @@ if(arrayfoodmapa.length==0 && arrayRaim.length==0){
   alert("Has Guanyat");
   noLoop();
   window.history.back();
+   maxpoints=JSON.parse(localStorage.getItem("maxpunts"));
+
+  maxpoints.push(mypacman.score);
+
+  localStorage.setItem("maxpunts", JSON.stringify(maxpoints));
 }
 }
 function keyPressed() {
-  if (keyCode === LEFT_ARROW) {
+  if (keyCode == LEFT_ARROW) {
     mypacman.esquerra();
-  } else if (keyCode === RIGHT_ARROW) {
+  } else if (keyCode == RIGHT_ARROW) {
     mypacman.dreta();
-  }else if (keyCode === UP_ARROW){
+  }else if (keyCode == UP_ARROW){
     mypacman.amunt();
-  }else if (keyCode === DOWN_ARROW){
+  }else if (keyCode == DOWN_ARROW){
     mypacman.avall();
   }
 }
@@ -187,6 +206,8 @@ fill(255);
 textSize(12);
 textStyle(NORMAL);
 text(t, 10, 430);
+
+
 }
 /**function inputKeyboard(){
   if(keyPressed(){

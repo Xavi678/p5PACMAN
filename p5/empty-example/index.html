@@ -30,6 +30,25 @@ img {
   width: 25%;
 
 }
+
+#info {
+  margin-left:630px;
+  background-color: Yellow;
+  width: 25%;
+
+}
+
+#credit{
+  margin-left:630px;
+  background-color: Yellow;
+  width: 25%;
+}
+#maxpunt{
+  margin-left:630px;
+  background-color: Yellow;
+  width: 25%;
+  text-align: center;
+}
 </style>
 
   <body style="background-color:Navy;">
@@ -53,5 +72,31 @@ img {
         <input id="settings" type="submit" value="Settings" />
 
       </form>
+
+      <form action="info.html">
+        <input id="info" type="submit" value="Informació" />
+
+      </form>
+      <form action="credits.html">
+        <input id="credit" type="submit" value="Crèdits" />
+
+      </form>
+      <p id="maxpunt">
+
+      </p>
+      <script>
+
+       var maxpointstemp=localStorage.getItem("maxpunts");
+       var maxpoints=JSON.parse(maxpointstemp);
+      //var username=localStorage.getItem("user");
+      //var maxpoints1="Punts màxmis: "+ maxpoints+" Fets per:"+username;
+      
+      document.getElementById("maxpunt").innerHTML=maxpoints;
+
+
+
+
+
+      </script>
     </body>
 </html>

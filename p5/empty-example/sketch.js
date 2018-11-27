@@ -44,7 +44,7 @@ function setup() {
 
    for(i=0;i<mymaze.myfil;i++){
      for(j=0;j<mymaze.mycol;j++){
-       if(mymaze.mapa[i][j] == 2){
+       if(mymaze.mapa[i][j] == 0){
         arrayfoodmapa.push (new Food(j*IMAGE_SIZE, i*IMAGE_SIZE));
        }
 
@@ -54,7 +54,7 @@ function setup() {
 
     for(i=0;i<mymaze.myfil;i++){
       for(j=0;j<mymaze.mycol;j++){
-        if(mymaze.mapa[i][j] == 0){
+        if(mymaze.mapa[i][j] == 2){
          arrayRaim.push (new Raim(j*IMAGE_SIZE, i*IMAGE_SIZE));
         }
 
@@ -97,13 +97,15 @@ for(i=0;i<arrayfoodmapa.length;i++){
 for(i=0;i<arrayfoodmapa.length;i++){
    if(mypacman.eatFood(arrayfoodmapa[i])){
      arrayfoodmapa.splice(i,1);
-     temps=temps+25;
+
    }
 }
 
 for(i=0;i<arrayRaim.length;i++){
    if(mypacman.eatGrapes(arrayRaim[i])){
      arrayRaim.splice(i,1);
+
+     temps=temps+25;
    }
 }
 

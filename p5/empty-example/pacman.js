@@ -105,7 +105,7 @@ class pacman extends GameObject{
 
     }else{
       this.direction=1;
-  
+
     this.cordY+=IMAGE_SIZE;
 
 }
@@ -139,6 +139,17 @@ class pacman extends GameObject{
    var distancia=dist(this.cordX,this.cordY,roca.cordX,roca.cordY);
    if(distancia<16){
      this.lives-=1;
+     console.log(this.lives);
+     return true;
+   }
+ }
+
+ eatPow(pow){
+   var distancia=dist(this.cordX,this.cordY,pow.cordX,pow.cordY);
+   if(distancia<16){
+     if(this.lives<3){
+     this.lives+=1;
+   }
      console.log(this.lives);
      return true;
    }

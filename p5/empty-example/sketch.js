@@ -10,23 +10,33 @@ var mymaze;
 var arrayrocamapa=[];
 var arrayRaim=[];
 var arrayfoodmapa=[];
+var arraypow=[];
 var MYpacman;
 var food;
+var pow;
+var mort;
+var fruita;
 var username=localStorage.getItem("user");
 var d1=localStorage.getItem("Dificultat");
 var maxpoints=[];
 var temps;
+var columns;
+var files;
 if(d1=="" || d1==null || username=="" || username==null){
   window.location.replace("index.html");
   alert("Primer de tot has de posar els Settings");
 }
 
 function preload(){
+  pow=loadImage('imatges/powerup_opt.png');
   img=loadImage('imatges/imatge.jpg');
   img2=loadImage('imatges/pac.png');
   roca=loadImage('imatges/roca.bmp');
   raim=loadImage('imatges/grape.png');
   food=loadImage('imatges/food.png');
+  mort=loadSound('assets/pacman_death.wav');
+  fruita=loadSound('assets/pacman_eatfruit.wav');
+
 
 }
 
@@ -36,6 +46,7 @@ function setup() {
 
 
    mymaze= new maze();
+   mymaze.generarMap();
   // pacman= new pacman(img2,j*IMAGE_SIZE,i*IMAGE_SIZE);
   mypacman= new pacman(1*IMAGE_SIZE,1*IMAGE_SIZE);
   createCanvas(COLUMNS*IMAGE_SIZE,ROW*IMAGE_SIZE+HEIGHT_TEXT);
@@ -43,6 +54,15 @@ function setup() {
      for(j=0;j<mymaze.mycol;j++){
        if(mymaze.mapa[i][j] == 1){
         arrayrocamapa.push (new Roca(j*IMAGE_SIZE, i*IMAGE_SIZE));
+       }
+
+     }
+   }
+
+   for(i=0;i<mymaze.myfil;i++){
+     for(j=0;j<mymaze.mycol;j++){
+       if(mymaze.mapa[i][j] == 3){
+        arraypow.push (new Pow(j*IMAGE_SIZE, i*IMAGE_SIZE));
        }
 
      }
@@ -62,6 +82,7 @@ function setup() {
       for(j=0;j<mymaze.mycol;j++){
         if(mymaze.mapa[i][j] == 2){
          arrayRaim.push (new Raim(j*IMAGE_SIZE, i*IMAGE_SIZE));
+         fruita.play();
         }
 
       }
@@ -89,15 +110,21 @@ if(temps<=0){
   alert("Has perdut");
   noLoop();
     window.history.back();
+    mort.play();
 }
 var i;
 var j;
 var indexRaim;
+var indexP;
 var f=0;
 var c=0;
 ///alert(mymaze.mapa[0][0])
 for(indexRaim=0;indexRaim<arrayRaim.length;indexRaim++){
     arrayRaim[indexRaim].show();
+}
+
+for(indexP=0;indexP<arraypow.length;indexP++){
+    arraypow[indexP].show();
 }
 for(i=0;i<arrayrocamapa.length;i++){
   arrayrocamapa[i].show();
@@ -107,6 +134,12 @@ for(i=0;i<arrayfoodmapa.length;i++){
   arrayfoodmapa[i].show();
 }
 
+for(indexP=0;indexP<arraypow.length;indexP++){
+
+  if(mypacman.eatPow(arraypow[indexP])){
+    arraypow.splice(indexP,1);
+  }
+}
 //comprovar colisions
 for(i=0;i<arrayfoodmapa.length;i++){
    if(mypacman.eatFood(arrayfoodmapa[i])){
@@ -138,7 +171,7 @@ if(mypacman.lives==0){
   alert("Game Over");
   noLoop();
   window.history.back();
-
+mort.play();
 }
 printfooter();
 /*if(d1==1){

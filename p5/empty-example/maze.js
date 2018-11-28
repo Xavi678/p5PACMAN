@@ -20,18 +20,18 @@ class maze{
       [0,1,3,0,1,0,1,0,1,0],
       [0,0,2,0,2,0,0,2,0,0]
     ];*/
-    this.mapa=[[]];
+    this.mapa=[];
 
   }
 generarMap(){
   var i;
   var j;
-
-for(i=0;i<10;i++){
-  for(j=0;j<10;j++){
-
-    this.mapa[i][j]=Math.floor(Math.random() * 4);
+var arrayFila = [];
+  for(i=0;i<ROW;i++){
+  for(j=0;j<COLUMNS;j++){
+    arrayFila.push( 2);
   }
+  this.mapa.push(arrayFila);
 }
 }
 

@@ -23,16 +23,37 @@ class maze{
     this.mapa=[];
 
   }
-generarMap(){
-  var i;
+generarMap(rows,cols){
+  /*var i;
   var j;
 var arrayFila = [];
   for(i=0;i<ROW;i++){
   for(j=0;j<COLUMNS;j++){
-    arrayFila.push( 2);
+    arrayFila.push(Math.floor(Math.random() * 4));
   }
   this.mapa.push(arrayFila);
+  arrayFila.clear();
+}*/
+
+
+
+// Creates all lines:
+for(var i=0; i < rows; i++){
+
+// Creates an empty line
+this.mapa.push([]);
+
+// Adds cols to the empty line:
+this.mapa[i].push(new Array(cols));
+
+for(var j=0; j < cols; j++){
+// Initializes:
+this.mapa[i][j] = Math.floor((Math.random() * 4));
 }
 }
+
+return this.mapa;
+}
+
 
 }

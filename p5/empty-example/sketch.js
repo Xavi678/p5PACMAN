@@ -16,6 +16,8 @@ var food;
 var pow;
 var mort;
 var fruita;
+var chomp;
+var powerup;
 var username=localStorage.getItem("user");
 var d1=localStorage.getItem("Dificultat");
 var maxpoints=[];
@@ -36,8 +38,8 @@ function preload(){
   food=loadImage('imatges/food.png');
   mort=loadSound('assets/pacman_death.wav');
   fruita=loadSound('assets/pacman_eatfruit.wav');
-
-
+  chomp=loadSound('assets/pacman_chomp.wav');
+  powerup=loadSound('assets/pacman_eatghost.wav');
 }
 
 function setup() {
@@ -46,7 +48,7 @@ function setup() {
 
 
    mymaze= new maze();
-   mymaze.generarMap();
+   mymaze.generarMap(10,10);
   // pacman= new pacman(img2,j*IMAGE_SIZE,i*IMAGE_SIZE);
   mypacman= new pacman(1*IMAGE_SIZE,1*IMAGE_SIZE);
   createCanvas(COLUMNS*IMAGE_SIZE,ROW*IMAGE_SIZE+HEIGHT_TEXT);
@@ -82,7 +84,7 @@ function setup() {
       for(j=0;j<mymaze.mycol;j++){
         if(mymaze.mapa[i][j] == 2){
          arrayRaim.push (new Raim(j*IMAGE_SIZE, i*IMAGE_SIZE));
-         fruita.play();
+
         }
 
       }
@@ -107,10 +109,11 @@ function draw() {
 background(0);
 temps--;
 if(temps<=0){
+  mort.play();
   alert("Has perdut");
   noLoop();
     window.history.back();
-    mort.play();
+
 }
 var i;
 var j;
@@ -138,20 +141,21 @@ for(indexP=0;indexP<arraypow.length;indexP++){
 
   if(mypacman.eatPow(arraypow[indexP])){
     arraypow.splice(indexP,1);
+    powerup.play();
   }
 }
 //comprovar colisions
 for(i=0;i<arrayfoodmapa.length;i++){
    if(mypacman.eatFood(arrayfoodmapa[i])){
      arrayfoodmapa.splice(i,1);
-
+     chomp.play();
    }
 }
 
 for(i=0;i<arrayRaim.length;i++){
    if(mypacman.eatGrapes(arrayRaim[i])){
      arrayRaim.splice(i,1);
-
+     fruita.play();
      temps=temps+25;
    }
 }
@@ -168,10 +172,11 @@ for(i=0;i<arrayrocamapa.length;i++){
 mypacman.show();
 //inputKeyboard();
 if(mypacman.lives==0){
+  mort.play();
   alert("Game Over");
   noLoop();
   window.history.back();
-mort.play();
+
 }
 printfooter();
 /*if(d1==1){

@@ -20,7 +20,7 @@ var chomp;
 var powerup;
 var username=localStorage.getItem("user");
 var d1=localStorage.getItem("Dificultat");
-var maxpoints=[];
+var maxpoints;
 var temps;
 var columns;
 var files;
@@ -187,14 +187,22 @@ printfooter();
   mypacman.speed=3;
 }*/
 if(arrayfoodmapa.length==0 && arrayRaim.length==0){
-  alert("Has Guanyat");
+  alert("Has Guanyat Punts:"+mypacman.score);
   noLoop();
   window.history.back();
-   maxpoints=JSON.parse(localStorage.getItem("maxpunts"));
+   /*maxpoints=JSON.parse(localStorage.getItem("maxpunts"));
 
   maxpoints.push(mypacman.score);
 
-  localStorage.setItem("maxpunts", JSON.stringify(maxpoints));
+  localStorage.setItem("maxpunts", JSON.stringify(maxpoints));*/
+/*maxpoints=localStorage.getItem("maxpunts");
+maxpoints=maxpoints+ " Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ new Date()+" | ";
+localStorage.setItem("maxpunts",maxpoints);*/
+var maxpoints=[];
+maxpoints=JSON.parse(localStorage.getItem("usuari1"));
+
+maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ new Date());
+localStorage.setItem("usuari1",JSON.stringify(maxpoints));
 }
 }
 function keyPressed() {

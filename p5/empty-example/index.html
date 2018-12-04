@@ -43,7 +43,7 @@ img {
   background-color: Yellow;
   width: 25%;
 }
-#maxpunt{
+p{
   margin-left:630px;
   background-color: Yellow;
   width: 25%;
@@ -81,20 +81,46 @@ img {
         <input id="credit" type="submit" value="Crèdits" />
 
       </form>
-      <p id="maxpunt">
-
+      <p>
+        Rànking
       </p>
+      <p id="user1"></p>
+      <p id="user2"></p>
+      <p id="user3"></p>
+      <p id="user4"></p>
+      <p id="user5"></p>
+
+
+
       <script>
 
-       var maxpointstemp=localStorage.getItem("maxpunts");
-       var maxpoints=JSON.parse(maxpointstemp);
+        //var maxpoints=localStorage.getItem("maxpunts");
+        var usuari1=[];
+        var y=0;
+         usuari1=JSON.parse(localStorage.getItem("usuari1"));
+         usuari1.sort();
+
+         for(var i=usuari1.length-1;i!=0;i--){
+           y++;
+           document.getElementById("user"+y.toString()).innerHTML=usuari1[i];
+
+         }
+
+    /*    var usuari2=localStorage.getItem("usuari2");
+        var usuari3=localStorage.getItem("usuari3");
+        var usuari4=localStorage.getItem("usuari4");
+        var usuari5=localStorage.getItem("usuari5");
+
       //var username=localStorage.getItem("user");
       //var maxpoints1="Punts màxmis: "+ maxpoints+" Fets per:"+username;
-      
-      document.getElementById("maxpunt").innerHTML=maxpoints;
 
 
+        document.getElementById("user2").innerHTML=usuari2;
+          document.getElementById("user3").innerHTML=usuari3;
+            document.getElementById("user4").innerHTML=usuari4;
+              document.getElementById("user5").innerHTML=usuari5;
 
+*/
 
 
       </script>

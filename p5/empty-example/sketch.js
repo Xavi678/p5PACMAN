@@ -21,9 +21,11 @@ var powerup;
 var username=localStorage.getItem("user");
 var d1=localStorage.getItem("Dificultat");
 var maxpoints;
+var fantasma;
 var temps;
 var columns;
 var files;
+
 if(d1=="" || d1==null || username=="" || username==null){
   window.location.replace("index.html");
   alert("Primer de tot has de posar els Settings");
@@ -40,6 +42,9 @@ function preload(){
   fruita=loadSound('assets/pacman_eatfruit.wav');
   chomp=loadSound('assets/pacman_chomp.wav');
   powerup=loadSound('assets/pacman_eatghost.wav');
+  files=prompt("Entra les files");
+  columns=prompt("Entra les columnes");
+  ghost=loadImage('imatges/ghost.png');
 }
 
 function setup() {
@@ -48,10 +53,12 @@ function setup() {
 
 
    mymaze= new maze();
-   mymaze.generarMap(10,10);
+   mymaze.generarMap(files,columns);
   // pacman= new pacman(img2,j*IMAGE_SIZE,i*IMAGE_SIZE);
   mypacman= new pacman(1*IMAGE_SIZE,1*IMAGE_SIZE);
-  createCanvas(COLUMNS*IMAGE_SIZE,ROW*IMAGE_SIZE+HEIGHT_TEXT);
+  fantasma= new pacman((parseInt(files)-2)*IMAGE_SIZE,(parseInt(columns)-2)*IMAGE_SIZE);
+  //createCanvas(COLUMNS*IMAGE_SIZE,ROW*IMAGE_SIZE+HEIGHT_TEXT);
+ createCanvas(mymaze.myfil*IMAGE_SIZE, mymaze.mycol*IMAGE_SIZE + HEIGHT_TEXT);
    for(i=0;i<mymaze.myfil;i++){
      for(j=0;j<mymaze.mycol;j++){
        if(mymaze.mapa[i][j] == 1){
@@ -170,6 +177,39 @@ for(i=0;i<arrayrocamapa.length;i++){
 
 
 mypacman.show();
+fantasma.fantasmashow();
+
+ var moure=Math.floor((Math.random() * 4));
+if(moure==0){
+  fantasma.amunt();
+}else if(moure==1){
+  fantasma.avall();
+}else if(moure==2){
+  fantasma.esquerra();
+}else if(moure==3){
+  fantasma.dreta();
+}
+
+
+/*for(i=0;i<arrayrocamapa.length;i++){
+   if(fantasma.eatRoca(arrayrocamapa[i])){
+     var moure=Math.floor((Math.random() *3));
+    if(moure==0){
+      fantasma.amunt();
+    }else if(moure==1){
+      fantasma.avall();
+    }else if(moure==2){
+      fantasma.dreta();
+    }
+  }else{
+    fantasma.esquerra();
+  }
+
+}*/
+
+if(mypacman.Morir(fantasma)){
+  mypacman.lives=0;
+}
 //inputKeyboard();
 if(mypacman.lives==0){
   mort.play();
@@ -199,10 +239,21 @@ if(arrayfoodmapa.length==0 && arrayRaim.length==0){
 maxpoints=maxpoints+ " Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ new Date()+" | ";
 localStorage.setItem("maxpunts",maxpoints);*/
 var maxpoints=[];
-maxpoints=JSON.parse(localStorage.getItem("usuari1"));
+var d=new Date();
+if(maxpoints.length==-1){
 
-maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ new Date());
-localStorage.setItem("usuari1",JSON.stringify(maxpoints));
+  maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
+  localStorage.setItem("usuari1",JSON.stringify(maxpoints));
+
+}else{
+  maxpoints=JSON.parse(localStorage.getItem("usuari1"));
+
+  maxpoints.push(" Punts " +mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
+
+  localStorage.setItem("usuari1",JSON.stringify(maxpoints));
+
+}
+
 }
 }
 function keyPressed() {
@@ -219,39 +270,40 @@ function keyPressed() {
 
 function printfooter(){
   var user="Usuari : " + username;
+  var initialOFfset= mymaze.myfil*IMAGE_SIZE;
 
 fill(255);
   textSize(12);
 textStyle(NORMAL);
-text(user, 10, 350);
+text(user, 10, initialOFfset+15);
 
 var vides="Vides restants : " + mypacman.lives;
 
 fill(255);
 textSize(12);
 textStyle(NORMAL);
-text(vides, 10, 370);
+text(vides, 10, initialOFfset+35);
 
 var punts="Punts: " + mypacman.score;
 
 fill(255);
 textSize(12);
 textStyle(NORMAL);
-text(punts, 10, 390);
+text(punts, 10, initialOFfset+55);
 
 var f="Dificultat: " + d1;
 
 fill(255);
 textSize(12);
 textStyle(NORMAL);
-text(f, 10, 410);
+text(f, 10, initialOFfset+75);
 
 var t="Temps: " + temps;
 
 fill(255);
 textSize(12);
 textStyle(NORMAL);
-text(t, 10, 430);
+text(t, 10, initialOFfset+95);
 
 
 }

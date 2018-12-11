@@ -24,6 +24,8 @@ class maze{
 
   }
 generarMap(rows,cols){
+  this.myfil=rows;
+  this.mycol=cols;
   /*var i;
   var j;
 var arrayFila = [];

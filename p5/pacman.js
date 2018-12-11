@@ -11,10 +11,7 @@ class pacman extends GameObject{
     this.direction=0;
     this.name=null;
     this.speed=1;
-    this.movement=IMAGE_SIZE;
-
-    }
-
+  }
 
   show(){
     //image(img2,this.cordX,this.cordY);
@@ -46,14 +43,10 @@ class pacman extends GameObject{
 
   }
 
-  fantasmashow(){
-    image(ghost,this.cordX,this.cordY);
-  }
-
   dreta(){
 
 
-    if(this.cordX==mymaze.mycol*IMAGE_SIZE-32){
+    if(this.cordX==288){
 
     }else{
     this.direction=0;
@@ -110,7 +103,7 @@ class pacman extends GameObject{
   }
 
   avall(){
-    if(this.cordY==mymaze.myfil*IMAGE_SIZE-32){
+    if(this.cordY==288){
 
     }else{
       this.direction=1;
@@ -134,14 +127,6 @@ class pacman extends GameObject{
     console.log(this.score);
     return true;
   }
- }
-
- Morir(fantasma){
-   var distancia=dist(this.cordX,this.cordY,fantasma.cordX,fantasma.cordY);
-   if(distancia<16){
-
-     return true;
-   }
  }
 
  eatGrapes(raim){

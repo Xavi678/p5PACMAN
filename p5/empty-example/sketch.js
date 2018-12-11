@@ -25,7 +25,7 @@ var fantasma;
 var temps;
 var columns;
 var files;
-
+/* */
 if(d1=="" || d1==null || username=="" || username==null){
   window.location.replace("index.html");
   alert("Primer de tot has de posar els Settings");

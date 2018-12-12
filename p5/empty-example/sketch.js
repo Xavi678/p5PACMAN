@@ -25,6 +25,7 @@ var fantasma;
 var temps;
 var columns;
 var files;
+var maxpoints=[];
 /* */
 if(d1=="" || d1==null || username=="" || username==null){
   window.location.replace("index.html");
@@ -55,7 +56,7 @@ function setup() {
    mymaze= new maze();
    mymaze.generarMap(files,columns);
   // pacman= new pacman(img2,j*IMAGE_SIZE,i*IMAGE_SIZE);
-  mypacman= new pacman(1*IMAGE_SIZE,1*IMAGE_SIZE);
+  mypacman= new pacman(5*IMAGE_SIZE,5*IMAGE_SIZE);
   fantasma= new pacman(0*IMAGE_SIZE,0*IMAGE_SIZE);
   fantasma1=new pacman(0*IMAGE_SIZE,9*IMAGE_SIZE);
   fantasma2=new pacman(9*IMAGE_SIZE,0*IMAGE_SIZE);
@@ -118,13 +119,7 @@ function draw() {
   image(img, 0, 0);
 background(0);
 temps--;
-if(temps<=0){
-  mort.play();
-  alert("Has perdut");
-  noLoop();
-    window.history.back();
 
-}
 var i;
 var j;
 var indexRaim;
@@ -247,13 +242,38 @@ if(moure==0){
 if(mypacman.Morir(fantasma)){
   mypacman.lives=0;
 }
+
+if(mypacman.Morir(fantasma1)){
+  mypacman.lives=0;
+}
+
+if(mypacman.Morir(fantasma2)){
+  mypacman.lives=0;
+}
+
+if(mypacman.Morir(fantasma3)){
+  mypacman.lives=0;
+}
 //inputKeyboard();
-if(mypacman.lives==0){
+if(mypacman.lives==0 || temps<=0){
   mort.play();
   alert("Game Over");
   noLoop();
   window.history.back();
+  var d=new Date();
+  if(maxpoints.length==-1){
 
+    maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
+    localStorage.setItem("usuari1",JSON.stringify(maxpoints));
+
+  }else{
+    maxpoints=JSON.parse(localStorage.getItem("usuari1"));
+
+    maxpoints.push(" Punts " +mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
+
+    localStorage.setItem("usuari1",JSON.stringify(maxpoints));
+
+  }
 }
 printfooter();
 /*if(d1==1){
@@ -275,7 +295,7 @@ if(arrayfoodmapa.length==0 && arrayRaim.length==0){
 /*maxpoints=localStorage.getItem("maxpunts");
 maxpoints=maxpoints+ " Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ new Date()+" | ";
 localStorage.setItem("maxpunts",maxpoints);*/
-var maxpoints=[];
+
 var d=new Date();
 if(maxpoints.length==-1){
 

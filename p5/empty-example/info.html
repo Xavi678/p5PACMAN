@@ -4,6 +4,30 @@
   <head>
    <meta http−equiv="content−type" content="text/html; charset=utf−8">
    <title>Objecte navigator</title>
+   <style>
+   body{
+     background-color: Navy;
+   }
+   h1{
+     text-align: center;
+     color: yellow;
+     text-shadow: 3px 3px 3px Red;
+     font-size: 100px;
+   }
+   label{
+     text-align: center;
+     color: yellow;
+     font-size: 50px;
+     text-shadow: 3px 3px 3px Red;
+   }
+   .myButton {
+
+ color: rgb(255, 255, 238); font-size: 50px; line-height: 50px; padding: 10px; border-radius: 14px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; border: 2px solid rgb(28, 110, 164); display: inline-block;}
+ .myButton:hover {
+ background: #1C6EA4; }
+ .myButton:active {
+ background: #144E75; }
+</style>
    </head>
   <body>
     <h1>Informació General</h1>
@@ -13,9 +37,9 @@
   <label id="l4"></label><br/>
 <label id="l5"></label><br/>
 <label id="l6"></label><br />
-<button onclick="window.history.back()">Enrere</button>
+<button class="myButton" onclick="window.history.back()">Enrere</button>
 &emsp;
-<button onclick="window.history.forward()">Endavant</button>
+<button class="myButton" onclick="window.history.forward()">Endavant</button>
 
 
 

@@ -4,12 +4,39 @@
   <title>
     Configuració
   </title>
+  <style>
+  body{
+    background-color: Navy;
+  }
+  h1{
+    text-align: center;
+    color: yellow;
+    text-shadow: 3px 3px 3px Red;
+    font-size: 100px;
+  }
+  label{
+    text-align: center;
+    color: yellow;
+
+    text-shadow: 3px 3px 3px Red;
+  }
+  .myButton {
+
+color: rgb(255, 255, 238); font-size: 50px; line-height: 50px; padding: 10px; border-radius: 14px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; border: 2px solid rgb(28, 110, 164); display: inline-block;}
+.myButton:hover {
+background: #1C6EA4; }
+.myButton:active {
+background: #144E75; }
+  </style>
 </head>
 <body>
-Nom: <label id="nom"></label><br />
-Dificultat: <label id="dificultat"></label><br />
-<a href="index.html">Tornar</a>
-<button id="boto" onclick="borrar()">
+  <h1 style="text-align: center;">Configuració</h1>
+<label style="font-size: 50px;text-align: center;" >Nom:</label> <label id="nom" style="font-size: 50px;text-align: center;"></label><br />
+<label style="font-size: 50px">Dificultat:</label> <label id="dificultat" style="font-size: 50px"></label><br />
+<form action="index.html">
+    <input class="myButton" type="submit" value="Tornar" />
+</form>
+<button id="boto" class="myButton" onclick="borrar()">
   Esborrar
   </button>
 <script>

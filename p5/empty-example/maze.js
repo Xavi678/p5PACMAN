@@ -50,7 +50,11 @@ this.mapa[i].push(new Array(cols));
 
 for(var j=0; j < cols; j++){
 // Initializes:
+if(j==5 && i==5){
+
+}else{
 this.mapa[i][j] = Math.floor((Math.random() * 4));
+}
 }
 }
 

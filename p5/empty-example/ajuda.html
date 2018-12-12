@@ -4,14 +4,42 @@
   <title>
     Ajuda
   </title>
+  <style>
+  body{
+    background-color:Navy;
+  }
+  .paragraf{
+    color: white;
+  }
+  .myButton {
+
+color: rgb(255, 255, 238); font-size: 50px; line-height: 50px; padding: 10px; border-radius: 14px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; border: 2px solid rgb(28, 110, 164); display: inline-block;}
+.myButton:hover {
+background: #1C6EA4; }
+.myButton:active {
+background: #144E75; }
+  </style>
 </head>
 <body>
-  <img src="imatges/arrows.jpg" />  Fes servir les fletxes del teclat per moure't(UP ARROW: cap amunt, DOWN ARROW: cap avall, LEFT ARROW: esquerra, RIGHT ARROW: dreta) <br />
-  <img src="imatges/food.png"/> El food et dóna Punts<br />
-  <img src="imatges/roca.bmp"/> Les roques et treuen punts i vides si hi passes per sobre, només tens tres vides <br />
-  <img src="imatges/grape.png"/> El raim et dóna 50 segons i punts <br />
-  <img src="imatges/powerup_opt.png"/> Els pows et donen 1 vida més( només en pots tenir 3 com a màxim)<br />
+  <img src="imatges/arrows.jpg" />  <p class="paragraf">
+    Fes servir les fletxes del teclat per moure't(UP ARROW: cap amunt, DOWN ARROW: cap avall, LEFT ARROW: esquerra, RIGHT ARROW: dreta)
+  </p>
+  <img src="imatges/food.png"/><p class="paragraf">
+    El food et dóna Punts
+  </p>
+  <img src="imatges/roca.bmp"/> <p class="paragraf">
+    Les roques et treuen punts i vides si hi passes per sobre, només tens tres vides <br />
+  </p>
+  <img src="imatges/grape.png"/> <p class="paragraf">
+    El raim et dóna 50 segons i punts
+  </p>
+  <img src="imatges/powerup_opt.png"/><p class="paragraf">
+     Els pows et donen 1 vida més( només en pots tenir 3 com a màxim)<br />
+  </p>
 
-<a href="index.html">Tornar</a>
+<!--<a href="index.html" >Tornar</a>-->
+<form action="index.html">
+    <input class="myButton" type="submit" value="Tornar" />
+</form>
 </body>
 </html>

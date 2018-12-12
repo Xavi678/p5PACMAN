@@ -61,6 +61,19 @@ class pacman extends GameObject{
     this.cordX+=IMAGE_SIZE;
 
 }
+}
+
+fdreta(){
+
+
+  if(this.cordX==mymaze.mycol*IMAGE_SIZE-32){
+
+  }else{
+  this.direction=0;
+
+  this.cordX+=8;
+
+}
 
   /*  if(this.speed==1){
       this.cordX+=IMAGE_SIZE;
@@ -71,6 +84,23 @@ class pacman extends GameObject{
     }*/
   }
 
+  fesquerra(){
+    if(this.cordX==0){
+
+    }else{
+    this.direction=2;
+
+    this.cordX-=8;
+
+}
+    /*if(this.speed==1){
+      this.cordX-=IMAGE_SIZE;
+    }else if(this.speed==2){
+      this.cordX-=64;
+    }else if(this.speed==3){
+      this.cordX-=128;
+    }*/
+  }
 
 
   esquerra(){
@@ -91,6 +121,23 @@ class pacman extends GameObject{
     }*/
   }
 
+  famunt(){
+    if(this.cordY==0){
+
+    }else{
+    this.direction=3;
+
+      this.cordY-=8;
+
+  }
+    /*if(this.speed==1){
+      this.cordY-=IMAGE_SIZE;
+    }else if(this.speed==2){
+      this.cordY-=64;
+    }else if(this.speed==3){
+      this.cordY-=128;
+    }*/
+  }
   amunt(){
     if(this.cordY==0){
 
@@ -109,6 +156,23 @@ class pacman extends GameObject{
     }*/
   }
 
+  favall(){
+    if(this.cordY==mymaze.myfil*IMAGE_SIZE-32){
+
+    }else{
+      this.direction=1;
+
+    this.cordY+=8;
+
+}
+    /*if(this.speed==1){
+      this.cordY+=IMAGE_SIZE;
+    }else if(this.speed==2){
+      this.cordY+=64;
+    }else if(this.speed==3){
+      this.cordY+=128;
+    }*/
+    }
   avall(){
     if(this.cordY==mymaze.myfil*IMAGE_SIZE-32){
 

@@ -56,7 +56,10 @@ function setup() {
    mymaze.generarMap(files,columns);
   // pacman= new pacman(img2,j*IMAGE_SIZE,i*IMAGE_SIZE);
   mypacman= new pacman(1*IMAGE_SIZE,1*IMAGE_SIZE);
-  fantasma= new pacman((parseInt(files)-2)*IMAGE_SIZE,(parseInt(columns)-2)*IMAGE_SIZE);
+  fantasma= new pacman(0*IMAGE_SIZE,0*IMAGE_SIZE);
+  fantasma1=new pacman(0*IMAGE_SIZE,9*IMAGE_SIZE);
+  fantasma2=new pacman(9*IMAGE_SIZE,0*IMAGE_SIZE);
+  fantasma3=new pacman(9*IMAGE_SIZE,9*IMAGE_SIZE);
   //createCanvas(COLUMNS*IMAGE_SIZE,ROW*IMAGE_SIZE+HEIGHT_TEXT);
  createCanvas(mymaze.myfil*IMAGE_SIZE, mymaze.mycol*IMAGE_SIZE + HEIGHT_TEXT);
    for(i=0;i<mymaze.myfil;i++){
@@ -178,18 +181,52 @@ for(i=0;i<arrayrocamapa.length;i++){
 
 mypacman.show();
 fantasma.fantasmashow();
-
+fantasma1.fantasmashow();
+fantasma2.fantasmashow();
+fantasma3.fantasmashow();
  var moure=Math.floor((Math.random() * 4));
 if(moure==0){
-  fantasma.amunt();
+  fantasma.famunt();
 }else if(moure==1){
-  fantasma.avall();
+  fantasma.favall();
 }else if(moure==2){
-  fantasma.esquerra();
+  fantasma.fesquerra();
 }else if(moure==3){
-  fantasma.dreta();
+  fantasma.fdreta();
 }
 
+var moure=Math.floor((Math.random() * 4));
+if(moure==0){
+ fantasma1.famunt();
+}else if(moure==1){
+ fantasma1.favall();
+}else if(moure==2){
+ fantasma1.fesquerra();
+}else if(moure==3){
+ fantasma1.fdreta();
+}
+
+var moure=Math.floor((Math.random() * 4));
+if(moure==0){
+ fantasma2.famunt();
+}else if(moure==1){
+ fantasma2.favall();
+}else if(moure==2){
+ fantasma2.fesquerra();
+}else if(moure==3){
+ fantasma2.fdreta();
+}
+
+var moure=Math.floor((Math.random() * 4));
+if(moure==0){
+ fantasma3.famunt();
+}else if(moure==1){
+ fantasma3.favall();
+}else if(moure==2){
+ fantasma3.fesquerra();
+}else if(moure==3){
+ fantasma3.fdreta();
+}
 
 /*for(i=0;i<arrayrocamapa.length;i++){
    if(fantasma.eatRoca(arrayrocamapa[i])){

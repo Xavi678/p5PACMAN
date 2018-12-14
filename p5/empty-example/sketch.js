@@ -118,7 +118,7 @@ function draw() {
   // put drawing code here
   image(img, 0, 0);
 background(0);
-temps--;
+//temps--;
 
 var i;
 var j;
@@ -179,18 +179,68 @@ fantasma.fantasmashow();
 fantasma1.fantasmashow();
 fantasma2.fantasmashow();
 fantasma3.fantasmashow();
- var moure=Math.floor((Math.random() * 4));
-if(moure==0){
-  fantasma.famunt();
-}else if(moure==1){
-  fantasma.favall();
-}else if(moure==2){
-  fantasma.fesquerra();
-}else if(moure==3){
-  fantasma.fdreta();
+
+for(i=0;i<arrayrocamapa.length;i++){
+  if(fantasma.eatRoca(arrayrocamapa[i])){
+    fantasma.direction=Math.floor((Math.random() * 4));
+  }
 }
 
-var moure=Math.floor((Math.random() * 4));
+for(i=0;i<arrayrocamapa.length;i++){
+  if(fantasma1.eatRoca(arrayrocamapa[i])){
+    fantasma1.direction=Math.floor((Math.random() * 4));
+  }
+}
+for(i=0;i<arrayrocamapa.length;i++){
+  if(fantasma2.eatRoca(arrayrocamapa[i])){
+    fantasma2.direction=Math.floor((Math.random() * 4));
+  }
+}
+for(i=0;i<arrayrocamapa.length;i++){
+  if(fantasma3.eatRoca(arrayrocamapa[i])){
+    fantasma3.direction=Math.floor((Math.random() * 4));
+  }
+}
+if(fantasma.direction==0){
+  fantasma.fdreta();
+}else if(fantasma.direction==1){
+  fantasma.favall();
+}else if(fantasma.direction==2){
+  fantasma.fesquerra();
+}else if(fantasma.direction==3){
+  fantasma.famunt();
+}
+
+if(fantasma1.direction==0){
+  fantasma1.fdreta();
+}else if(fantasma1.direction==1){
+  fantasma1.favall();
+}else if(fantasma1.direction==2){
+  fantasma1.fesquerra();
+}else if(fantasma1.direction==3){
+  fantasma1.famunt();
+}
+
+if(fantasma2.direction==0){
+  fantasma2.fdreta();
+}else if(fantasma2.direction==1){
+  fantasma2.favall();
+}else if(fantasma2.direction==2){
+  fantasma2.fesquerra();
+}else if(fantasma2.direction==3){
+  fantasma2.famunt();
+}
+
+if(fantasma3.direction==0){
+  fantasma3.fdreta();
+}else if(fantasma3.direction==1){
+  fantasma3.favall();
+}else if(fantasma3.direction==2){
+  fantasma3.fesquerra();
+}else if(fantasma3.direction==3){
+  fantasma3.famunt();
+}
+/*var moure=Math.floor((Math.random() * 4));
 if(moure==0){
  fantasma1.famunt();
 }else if(moure==1){
@@ -259,9 +309,13 @@ if(mypacman.lives==0 || temps<=0){
   mort.play();
   alert("Game Over");
   noLoop();
-  window.history.back();
+  //window.history.back();
+  window.location.href="index.html";
   var d=new Date();
-  if(maxpoints.length==-1){
+  maxpoints=JSON.parse(localStorage.getItem("usuari1"));
+maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
+localStorage.setItem("usuari1",JSON.stringify(maxpoints));
+ /* if(maxpoints.length==0){
 
     maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
     localStorage.setItem("usuari1",JSON.stringify(maxpoints));
@@ -273,7 +327,7 @@ if(mypacman.lives==0 || temps<=0){
 
     localStorage.setItem("usuari1",JSON.stringify(maxpoints));
 
-  }
+  }*/
 }
 printfooter();
 /*if(d1==1){
@@ -286,7 +340,7 @@ printfooter();
 if(arrayfoodmapa.length==0 && arrayRaim.length==0){
   alert("Has Guanyat Punts:"+mypacman.score);
   noLoop();
-  window.history.back();
+  //window.location.href="index.html";
    /*maxpoints=JSON.parse(localStorage.getItem("maxpunts"));
 
   maxpoints.push(mypacman.score);
@@ -297,7 +351,10 @@ maxpoints=maxpoints+ " Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "
 localStorage.setItem("maxpunts",maxpoints);*/
 
 var d=new Date();
-if(maxpoints.length==-1){
+maxpoints=JSON.parse(localStorage.getItem("usuari1"));
+maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
+localStorage.setItem("usuari1",JSON.stringify(maxpoints));
+/*if(maxpoints.length==0){
 
   maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
   localStorage.setItem("usuari1",JSON.stringify(maxpoints));
@@ -310,7 +367,7 @@ if(maxpoints.length==-1){
   localStorage.setItem("usuari1",JSON.stringify(maxpoints));
 
 }
-
+*/
 }
 }
 function keyPressed() {

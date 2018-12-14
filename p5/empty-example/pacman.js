@@ -67,11 +67,19 @@ fdreta(){
 
 
   if(this.cordX==mymaze.mycol*IMAGE_SIZE-32){
-
+    this.direction=Math.floor((Math.random() * 4));
+    /*if(this.direction==0){
+      this.cordX-=8;
+    }else if(this.direction==1){
+      this.cordY-=8;
+    }else if(this.direction==2){
+      this.cordY+=8;
+    }*/
+    
   }else{
-  this.direction=0;
+  
 
-  this.cordX+=8;
+  this.cordX+=4;
 
 }
 
@@ -86,11 +94,12 @@ fdreta(){
 
   fesquerra(){
     if(this.cordX==0){
-
+      this.direction=Math.floor((Math.random() * 4));
+      
     }else{
-    this.direction=2;
+    
 
-    this.cordX-=8;
+    this.cordX-=4;
 
 }
     /*if(this.speed==1){
@@ -123,11 +132,11 @@ fdreta(){
 
   famunt(){
     if(this.cordY==0){
-
+      this.direction=Math.floor((Math.random() * 4));
     }else{
-    this.direction=3;
+    
 
-      this.cordY-=8;
+      this.cordY-=4;
 
   }
     /*if(this.speed==1){
@@ -158,11 +167,11 @@ fdreta(){
 
   favall(){
     if(this.cordY==mymaze.myfil*IMAGE_SIZE-32){
-
+      this.direction=Math.floor((Math.random() * 4));
     }else{
-      this.direction=1;
+     
 
-    this.cordY+=8;
+    this.cordY+=4;
 
 }
     /*if(this.speed==1){

@@ -75,9 +75,9 @@ fdreta(){
     }else if(this.direction==2){
       this.cordY+=8;
     }*/
-    
+
   }else{
-  
+
 
   this.cordX+=4;
 
@@ -95,9 +95,9 @@ fdreta(){
   fesquerra(){
     if(this.cordX==0){
       this.direction=Math.floor((Math.random() * 4));
-      
+
     }else{
-    
+
 
     this.cordX-=4;
 
@@ -134,7 +134,7 @@ fdreta(){
     if(this.cordY==0){
       this.direction=Math.floor((Math.random() * 4));
     }else{
-    
+
 
       this.cordY-=4;
 
@@ -169,7 +169,7 @@ fdreta(){
     if(this.cordY==mymaze.myfil*IMAGE_SIZE-32){
       this.direction=Math.floor((Math.random() * 4));
     }else{
-     
+
 
     this.cordY+=4;
 
@@ -242,6 +242,19 @@ fdreta(){
    }
      console.log(this.lives);
      return true;
+   }
+ }
+
+ direccio(){
+  
+   if(this.direction==0){
+     this.fdreta();
+   }else if(this.direction==1){
+     this.favall();
+   }else if(this.direction==2){
+     this.fesquerra();
+   }else if(this.direction==3){
+     this.famunt();
    }
  }
 }

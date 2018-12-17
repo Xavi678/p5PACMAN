@@ -118,7 +118,7 @@ function draw() {
   // put drawing code here
   image(img, 0, 0);
 background(0);
-//temps--;
+temps--;
 
 var i;
 var j;
@@ -201,7 +201,12 @@ for(i=0;i<arrayrocamapa.length;i++){
     fantasma3.direction=Math.floor((Math.random() * 4));
   }
 }
-if(fantasma.direction==0){
+
+fantasma.direccio();
+fantasma1.direccio();
+fantasma2.direccio();
+fantasma3.direccio();
+/*if(fantasma.direction==0){
   fantasma.fdreta();
 }else if(fantasma.direction==1){
   fantasma.favall();

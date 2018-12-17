@@ -20,12 +20,12 @@ var chomp;
 var powerup;
 var username=localStorage.getItem("user");
 var d1=localStorage.getItem("Dificultat");
-var maxpoints;
+
 var fantasma;
 var temps;
 var columns;
 var files;
-var maxpoints;
+var maxpoints=[];
 /* */
 if(d1=="" || d1==null || username=="" || username==null){
   window.location.replace("index.html");
@@ -322,13 +322,15 @@ if(mypacman.lives==0 || temps<=0){
   //window.history.back();
   window.location.href="index.html";
   var d=new Date();
-  if(maxpoints==null){
+ /* if(maxpoints==undefined){  
     maxpoints=[];
-  }else{
+  }else{*/
   maxpoints=JSON.parse(localStorage.getItem("usuari1"));
-  }
+  
+
 maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
 localStorage.setItem("usuari1",JSON.stringify(maxpoints));
+
  /* if(maxpoints.length==0){
 
     maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);

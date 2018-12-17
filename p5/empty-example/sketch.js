@@ -50,7 +50,11 @@ function preload(){
 
 function setup() {
   // put setup code here
-
+  if(columns==null  || files==null ){
+    alert("Eps el valor no pot ser null, i han de ser integers");
+    window.location.href="index.html";
+    noLoop();
+  }
 
 
    mymaze= new maze();
@@ -327,8 +331,9 @@ if(mypacman.lives==0 || temps<=0){
   }else{*/
   maxpoints=JSON.parse(localStorage.getItem("usuari1"));
   
-
+if(mypacman.score!=0){
 maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
+}
 localStorage.setItem("usuari1",JSON.stringify(maxpoints));
 
  /* if(maxpoints.length==0){
@@ -368,7 +373,9 @@ localStorage.setItem("maxpunts",maxpoints);*/
 
 var d=new Date();
 maxpoints=JSON.parse(localStorage.getItem("usuari1"));
+if(mypacman.score!=0){
 maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
+}
 localStorage.setItem("usuari1",JSON.stringify(maxpoints));
 /*if(maxpoints.length==0){
 

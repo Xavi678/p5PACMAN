@@ -181,24 +181,29 @@ fantasma2.fantasmashow();
 fantasma3.fantasmashow();
 
 for(i=0;i<arrayrocamapa.length;i++){
-  if(fantasma.eatRoca(arrayrocamapa[i])){
-    fantasma.direction=Math.floor((Math.random() * 4));
+  if(fantasma.eatRocaf(arrayrocamapa[i])){
+    //fantasma.direction=Math.floor((Math.random() * 4));
+    fantasma.xocar();
   }
 }
 
 for(i=0;i<arrayrocamapa.length;i++){
-  if(fantasma1.eatRoca(arrayrocamapa[i])){
-    fantasma1.direction=Math.floor((Math.random() * 4));
+  if(fantasma1.eatRocaf(arrayrocamapa[i])){
+    //fantasma1.direction=Math.floor((Math.random() * 4));
+    fantasma1.xocar();
   }
 }
 for(i=0;i<arrayrocamapa.length;i++){
-  if(fantasma2.eatRoca(arrayrocamapa[i])){
-    fantasma2.direction=Math.floor((Math.random() * 4));
+  if(fantasma2.eatRocaf(arrayrocamapa[i])){
+    //fantasma2.direction=Math.floor((Math.random() * 4));
+    fantasma2.xocar();
   }
 }
 for(i=0;i<arrayrocamapa.length;i++){
-  if(fantasma3.eatRoca(arrayrocamapa[i])){
-    fantasma3.direction=Math.floor((Math.random() * 4));
+  if(fantasma3.eatRocaf(arrayrocamapa[i])){
+    fantasma3.xocar();
+
+
   }
 }
 

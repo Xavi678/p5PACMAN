@@ -233,6 +233,15 @@ fdreta(){
      return true;
    }
  }
+eatRocaf(roca){
+   var distancia=dist(this.cordX,this.cordY,roca.cordX,roca.cordY);
+   //console.log("roca"+distancia);
+   if(distancia<16){
+
+
+     return true;
+   }
+ }
 
  eatPow(pow){
    var distancia=dist(this.cordX,this.cordY,pow.cordX,pow.cordY);
@@ -246,7 +255,7 @@ fdreta(){
  }
 
  direccio(){
-  
+
    if(this.direction==0){
      this.fdreta();
    }else if(this.direction==1){
@@ -257,4 +266,35 @@ fdreta(){
      this.famunt();
    }
  }
+
+ xocar(){
+   if(this.direction==3){
+
+    /* do{
+       var n=Math.floor((Math.random() * 4));
+     }while(n==3);
+     this.direction=n;*/
+      this.direction=Math.floor(Math.random()*4);
+
+ }else if(this.direction==0){
+   /*do{
+     var n=Math.floor((Math.random() * 4));
+   }while(n==0);*/
+  this.direction=Math.floor(Math.random()*4);
+}else if(this.direction==1){
+
+ /*do{
+   var n=Math.floor((Math.random() * 4));
+ }while(n==1);*/
+  this.direction=Math.floor(Math.random()*4);
+}else if(this.direction==2){
+/*  do{
+    var n=Math.floor((Math.random() * 4));
+  }while(n==2);*/
+
+  this.direction=Math.floor(Math.random()*4);
+}
+ }
+
+
 }

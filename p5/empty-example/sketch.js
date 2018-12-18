@@ -30,7 +30,7 @@ var maxpoints=[];
 if(d1=="" || d1==null || username=="" || username==null){
   
   alert("Primer de tot has de posar els Settings");
-  window.location.replace("index.html");
+  window.location.href("index.html");
 }
 
 function preload(){

@@ -28,8 +28,9 @@ var files;
 var maxpoints=[];
 /* */
 if(d1=="" || d1==null || username=="" || username==null){
-  window.location.replace("index.html");
+  
   alert("Primer de tot has de posar els Settings");
+  window.location.replace("index.html");
 }
 
 function preload(){

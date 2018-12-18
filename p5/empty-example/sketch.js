@@ -330,7 +330,7 @@ if(mypacman.lives==0 || temps<=0){
   alert("Game Over");
   noLoop();
   //window.history.back();
-  window.location.href="index.html";
+  //window.location.href="index.html";
   var d=new Date();
  /* if(maxpoints==undefined){
     maxpoints=[];

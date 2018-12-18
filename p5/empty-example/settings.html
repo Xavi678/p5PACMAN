@@ -42,17 +42,17 @@ background: #144E75; }
 <script>
   var nom=localStorage.getItem("user");
 var dificultat=localStorage.getItem("Dificultat");
-if(nom==null || dificultat==null ){
+if(nom=="null" || dificultat=="null" || nom==null || dificultat==null ){
   nom=prompt("Entra el teu nom");
   dificultat=prompt("Elegeix la dificultat: (1=fàcil,2=díficil,3=molt díficil)");
-  if(dificultat>0){   
+  if(dificultat>0){
   localStorage.setItem("user",nom);
   localStorage.setItem("Dificultat",dificultat);
   }else{
-      localStorage.setItem("user",null);
-  localStorage.setItem("Dificultat",null);
+      localStorage.setItem("user","null");
+  localStorage.setItem("Dificultat","null");
     alert("ha de ser u número més gran que 0");
-    window.location.reload(); 
+    window.location.reload();
   }
 }
 
@@ -65,16 +65,16 @@ function borrar(){
 
     nom=prompt("Entra el teu nom");
     dificultat=prompt("Elegeix la dificultat: (1=fàcil,2=díficil,3=molt díficil)");
-   if(dificultat>0){ 
+   if(dificultat>0){
     localStorage.setItem("user",nom);
     localStorage.setItem("Dificultat",dificultat);
     document.getElementById("nom").innerHTML=nom;
     document.getElementById("dificultat").innerHTML=dificultat;
     }else{
-         localStorage.setItem("user",null);
-  localStorage.setItem("Dificultat",null);
+         localStorage.setItem("user","null");
+  localStorage.setItem("Dificultat","null");
     alert("ha de ser u número més gran que 0");
-    window.location.reload(); 
+    window.location.reload();
   }
 }
 

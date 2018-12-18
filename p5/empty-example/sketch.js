@@ -30,12 +30,7 @@ var maxpoints=[];
 
 
 function preload(){
-  if(d1==" " || d1==null || username==" " || username==null){
-  
-  alert("Primer de tot has de posar els Settings");
-  window.location.href("index.html");
-    alert(d1);
-}
+
   pow=loadImage('imatges/powerup_opt.png');
   img=loadImage('imatges/imatge.jpg');
   img2=loadImage('imatges/pac.png');
@@ -53,10 +48,18 @@ function preload(){
 
 function setup() {
   // put setup code here
+  if(d1=="" || d1=="null" || username=="" || username=="null"){
+
+  alert("Primer de tot has de posar els Settings");
+  window.location.href="index.html";
+
+}
+
+
   if(files==null  || columns==null ){
     alert("Eps el valor no pot ser null, i han de ser integers");
     window.location.href="index.html";
-   alert("+");
+
   }
 
 
@@ -329,11 +332,11 @@ if(mypacman.lives==0 || temps<=0){
   //window.history.back();
   window.location.href="index.html";
   var d=new Date();
- /* if(maxpoints==undefined){  
+ /* if(maxpoints==undefined){
     maxpoints=[];
   }else{*/
   maxpoints=JSON.parse(localStorage.getItem("usuari1"));
-  
+
 if(mypacman.score!=0){
 maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
 }

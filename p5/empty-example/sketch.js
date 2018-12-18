@@ -54,7 +54,7 @@ function setup() {
   if(files==null  || columns==null ){
     alert("Eps el valor no pot ser null, i han de ser integers");
     window.location.href="index.html";
-    noLoop();
+   alert("+");
   }
 
 

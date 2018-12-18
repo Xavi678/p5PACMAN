@@ -42,7 +42,7 @@ background: #144E75; }
 <script>
   var nom=localStorage.getItem("user");
 var dificultat=localStorage.getItem("Dificultat");
-if(nom==null || dificultat==null){
+if(nom==null || dificultat==null || dificultat<0){
   nom=prompt("Entra el teu nom");
   dificultat=prompt("Elegeix la dificultat: (1=fàcil,2=díficil,3=molt díficil)");
   localStorage.setItem("user",nom);

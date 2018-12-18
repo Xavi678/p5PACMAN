@@ -25,7 +25,7 @@ var fantasma;
 var temps;
 var columns;
 var files;
-var maxpoints=['u'];
+var maxpoints=new Array('w');
 /* */
 
 
@@ -339,7 +339,9 @@ if(mypacman.lives==0 || temps<=0){
 
 if(mypacman.score!=0){
 maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
+alert("aqui");
 }
+
 localStorage.setItem("usuari1",JSON.stringify(maxpoints));
 
  /* if(maxpoints.length==0){

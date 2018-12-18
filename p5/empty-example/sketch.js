@@ -328,9 +328,9 @@ if(mypacman.Morir(fantasma3)){
 if(mypacman.lives==0 || temps<=0){
   mort.play();
   alert("Game Over");
-  //noLoop();
+  noLoop();
   //window.history.back();
-  //window.location.href="index.html";
+  window.location.href="index.html";
   var d=new Date();
  /* if(maxpoints==undefined){
     maxpoints=[];
@@ -373,7 +373,7 @@ printfooter();
 if(arrayfoodmapa.length==0 && arrayRaim.length==0){
   alert("Has Guanyat Punts:"+mypacman.score);
   noLoop();
-  //window.location.href="index.html";
+  window.location.href="index.html";
    /*maxpoints=JSON.parse(localStorage.getItem("maxpunts"));
 
   maxpoints.push(mypacman.score);

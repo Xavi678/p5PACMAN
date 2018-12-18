@@ -27,13 +27,15 @@ var columns;
 var files;
 var maxpoints=[];
 /* */
-if(d1=="" || d1==null || username=="" || username==null){
+
+
+function preload(){
+  if(d1==" " || d1==null || username==" " || username==null){
   
   alert("Primer de tot has de posar els Settings");
   window.location.href("index.html");
+    alert(d1);
 }
-
-function preload(){
   pow=loadImage('imatges/powerup_opt.png');
   img=loadImage('imatges/imatge.jpg');
   img2=loadImage('imatges/pac.png');

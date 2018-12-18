@@ -42,11 +42,16 @@ background: #144E75; }
 <script>
   var nom=localStorage.getItem("user");
 var dificultat=localStorage.getItem("Dificultat");
-if(nom==null || dificultat==null || dificultat<0){
+if(nom==null || dificultat==null ){
   nom=prompt("Entra el teu nom");
   dificultat=prompt("Elegeix la dificultat: (1=fàcil,2=díficil,3=molt díficil)");
+  if(dificultat>0){   
   localStorage.setItem("user",nom);
   localStorage.setItem("Dificultat",dificultat);
+  }else{
+    alert("ha de ser u número més tran que 0");
+    window.location.reload(); 
+  }
 }
 
 document.getElementById("nom").innerHTML=nom;

@@ -335,7 +335,9 @@ if(mypacman.lives==0 || temps<=0){
  /* if(maxpoints==undefined){
     maxpoints=[];
   }else{*/
-  if(maxpoints!=null){
+  var prova=[];
+  prova=JSON.parse(localStorage.getItem("usuari1"));
+  if(prova!=null){
   maxpoints=JSON.parse(localStorage.getItem("usuari1"));
   }else{
     maxpoints=[];

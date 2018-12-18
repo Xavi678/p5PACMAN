@@ -328,7 +328,7 @@ if(mypacman.Morir(fantasma3)){
 if(mypacman.lives==0 || temps<=0){
   mort.play();
   alert("Game Over");
-  noLoop();
+  //noLoop();
   //window.history.back();
   //window.location.href="index.html";
   var d=new Date();

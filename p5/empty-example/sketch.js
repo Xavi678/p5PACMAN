@@ -25,7 +25,7 @@ var fantasma;
 var temps;
 var columns;
 var files;
-var maxpoints=[];
+var maxpoints=['u'];
 /* */
 
 

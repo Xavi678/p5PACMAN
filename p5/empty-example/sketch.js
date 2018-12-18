@@ -339,7 +339,7 @@ if(mypacman.lives==0 || temps<=0){
 
 if(mypacman.score!=0){
 maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
-alert("aqui");
+alert(maxpoints);
 }
 
 localStorage.setItem("usuari1",JSON.stringify(maxpoints));

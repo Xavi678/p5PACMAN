@@ -336,7 +336,7 @@ if(mypacman.lives==0 || temps<=0){
     maxpoints=[];
   }else{*/
   maxpoints=JSON.parse(localStorage.getItem("usuari1"));
-
+alert(mypacman.score);
 if(mypacman.score!=0){
 maxpoints.push(" Punts " + mypacman.score+ "Usuari: "+ username+ " Data: "+ d);
 alert(maxpoints);
